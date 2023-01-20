@@ -1,0 +1,145 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');  /*font seçtik*/
+
+*{
+    margin: 0;   /*kenar boşlukları sildik*/
+    padding: 0;
+    box-sizing: border-box; /*kutuları şekillendirdik*/
+}
+body{
+    font-family: 'Poppins', sans-serif; /*font ekleme*/
+    background-image: url("bc.png");  /*arkaplan resmi ekledik*/
+    background-size: cover;             /*rerim ekranı kapsayacak*/
+
+}
+a{
+    color: #fff; /* tüm a etiketleri beyaz olsun*/
+}
+/*yazı ve menu aynı hizada olucak bu yüzden ikisinede container vericez*/
+.container{ /* bu class'ı header ve sectionda kullandık*/
+    margin: auto; /*ortaladık*/
+    width: 80%; /*ekranda yanlarda boşluk olacak*/
+}
+/* header start */
+header{
+    height: 100px; /*logo, menu vs aling item verdiğimizde ortada olacaklar bu sebeple headere height verdik vermezsek içindekilerde aling item calışmaz*/
+    border-bottom: 2px solid rgba(255, 255, 255, 0.06); /*altına silik çizgi*/
+}
+header nav{
+    display: flex;  /*yan yana olsun*/
+    justify-content: space-between; /*logo ile menu arasına boşluk , en uzak noktaya giderler*/
+    align-items: center; /*aynı hizada olması için*/
+    height: 100%; /*kapsayıcının 100% yüksekliğini alacak*/
+}
+header nav .logo a{  
+    color: white; /*font ayarlarını yaptık*/
+    text-decoration: none;  /*alt çizgiyi sildik*/
+    font-weight: 700; /*biraz kalın olsun*/
+    font-size: 20px;
+}
+nav ul{
+    list-style: none; /*başındaki işaretleri sildik*/
+    display: flex /*yan yana alalım*/;
+    column-gap: 30px; /*aralarını açıyoruz*/
+}
+nav ul li a{
+    color: white;
+    text-decoration: none; /*çizgileri kaybettik*/ 
+    transition:color .25s ease ; /*geçiş efekti yavaş efekt*/
+}
+nav ul li a:hover{
+    color: #0ba2c0;
+}
+nav .menu{
+    display: flex; /* ul ile a etiketi yan yana gelsin*/
+    align-items: center;
+    column-gap: 48px; /*menu ve buton arası boşluk için */
+}
+nav .menu .menuBtn{
+    color:#0ba2c0; /*mavimsi bir renk*/
+    text-decoration: none; /*alt çizgi sil*/
+    background-color: rgba(255, 255, 255, 0.06); /*silik arkaplan*/
+    padding: 12px 24px;
+    border-radius: 56px;
+
+}
+nav .menu .menuBtn:hover{
+    background-color: #0ba2c0;
+    color:white ;
+    transition:all .25s ease ;
+}
+/* header end */
+
+/* section start*/
+.content{
+    color: white;
+    height:calc(100vh - 100px) ; /*ekran kadar yüksekliği olsun fakat yukarda nav kısmı 100px ve bu şekilde ekranda scrool cıkıyor , çözüm için cacl() fonksiyonunu kullanıp 100px i çıkardık*/
+    padding-top: 100px; /*ortaladık*/
+}
+.content h1{
+    font-size: 60px;
+    text-align: center; /*yazıyı ortaladık*/
+}
+.content p{
+    font-size: 24px;
+    text-align: center; /*yazıyı ortaladık*/
+    margin-top: 32px;  /* üst taraftan uzaklaştırdık */
+}
+.content .links{
+    display: flex; /*a etiketlerini yanyana getirdik*/
+    justify-content: center;  /*ortaladık*/
+    margin-top: 48px; /*yukardan uzaklaştırdık*/
+    column-gap: 16px; /*arlarını açtık*/
+}
+.content .links a{
+    background-color: white;
+    padding: 20px;
+    width: 280px;
+    color: black;
+    text-align: center;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 56px;
+    transition: all .25s ease-in;
+}
+.content .links a:hover{
+    background-color: #0ba2c0;
+    color: white;
+}
+/* section end */
+
+/* responsive start*/
+    @media(max-width:577px){ /*576 da ekran bozulmaya başlıyor bu sebeple 577 max wid */
+        .container{
+            width: 100%; /* ekranı 80% den 100% e alıyoruz*/
+            padding-left: 12px;
+            padding-right: 12px; /* yanlara çok bitişik  olmaması için */
+        }
+        .menu ul{
+            column-gap: 20px; /*aralarına verdiğimiz boşluğu azaltıyoruz*/
+        }
+        .menu .menuBtn{
+            display: none; /*butonu kaybediyoruz*/
+        }
+        .content {
+            padding-top: 50px;
+        }
+        .content h1{
+            font-size: 36px;
+        }
+        .content p{
+            font-size: 16px;
+        }
+        .content .links{
+            flex-direction: column; /*butonlar alt alta gelsin*/
+            align-items: center;
+            row-gap: 1rem;  /*arasını açalım,ust uste oldugu için bu row-gap*/
+        }
+        .content .links a{
+            padding: 14px;
+            width: 90%;
+        }
+    }
+/* responsive end */
+
+/*--------Gökhan Güney--------------------*/
